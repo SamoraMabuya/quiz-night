@@ -5,10 +5,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
 }
 
-export const Button = ({
+export default function Button({
   variant = "primary",
   className,
   ...props
-}: ButtonProps) => (
-  <button className={`btn btn-${variant} ${className || ""}`} {...props} />
-);
+}: ButtonProps) {
+  return (
+    <button className={`btn btn-${variant} ${className || ""}`} {...props} />
+  );
+}

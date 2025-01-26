@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { QuizQuestion } from "../types/quiz";
-import { Button } from "./ui/Button";
-import { Feedback } from "./Feedback";
+import Feedback from "./Feedback";
+import Button from "./ui/Button";
 
 interface QuestionProps {
   question: QuizQuestion;
@@ -16,14 +16,14 @@ interface QuestionProps {
   onNextQuestion: () => void;
 }
 
-export const Question: React.FC<QuestionProps> = ({
+export default function Question({
   question,
   showAnswer,
   onAnswerSelected,
   onNextQuestion,
   score,
   totalQuestions,
-}) => {
+}: QuestionProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answerResult, setAnswerResult] = useState<{
     isCorrect: boolean;
@@ -103,4 +103,4 @@ export const Question: React.FC<QuestionProps> = ({
       )}
     </div>
   );
-};
+}

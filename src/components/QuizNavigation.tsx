@@ -1,5 +1,5 @@
 import { ChevronLeft, SkipForward } from "lucide-react";
-import { Button } from "./ui/Button";
+import Button from "./ui/Button";
 import Timer from "./Timer";
 
 interface QuizNavigationProps {

@@ -4,11 +4,11 @@ interface FeedbackProps {
   totalQuestions: number;
 }
 
-export const Feedback = ({
+export default function Feedback({
   isCorrect,
   score,
   totalQuestions,
-}: FeedbackProps) => {
+}: FeedbackProps) {
   const percentage = (score / totalQuestions) * 100;
 
   const getFeedback = () => {
@@ -37,4 +37,4 @@ export const Feedback = ({
       {getFeedback()}
     </span>
   );
-};
+}

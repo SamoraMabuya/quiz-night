@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Timer as TimerIcon } from "lucide-react";
 
 interface TimerProps {
@@ -6,7 +6,7 @@ interface TimerProps {
   onTimeout: () => void;
 }
 
-export const Timer: React.FC<TimerProps> = ({ duration = 30, onTimeout }) => {
+export default function Timer({ duration = 30, onTimeout }: TimerProps) {
   const [timeLeft, setTimeLeft] = useState(duration);
 
   useEffect(() => {
@@ -48,6 +48,4 @@ export const Timer: React.FC<TimerProps> = ({ duration = 30, onTimeout }) => {
       </span>
     </div>
   );
-};
-
-export default Timer;
+}

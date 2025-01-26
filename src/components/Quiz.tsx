@@ -1,12 +1,11 @@
 import useQuiz from "../hooks/useQuiz";
-import { Question } from "./Question";
-import { Timer } from "./Timer";
-import { Score } from "./Score";
-import { Button } from "./ui/Button";
-import { Card } from "./ui/Card";
+import Question from "./Question";
+import Button from "./ui/Button";
+import Card from "./ui/Card";
 import QuizNavigation from "./QuizNavigation";
+import Score from "./Score";
 
-const Quiz = () => {
+export default function Quiz() {
   const { state, checkAnswer, nextQuestion, resetQuiz, previousQuestion } =
     useQuiz();
   const { questions, currentQuestionIndex, score, showAnswer } = state;
@@ -41,6 +40,4 @@ const Quiz = () => {
       />
     </Card>
   );
-};
-
-export default Quiz;
+}

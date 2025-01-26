@@ -5,6 +5,6 @@ interface CardProps {
   className?: string;
 }
 
-export const Card = ({ children, className }: CardProps) => (
-  <div className={`card ${className || ""}`}>{children}</div>
-);
+export default function Card({ children, className }: CardProps) {
+  return <div className={`card ${className || ""}`}>{children}</div>;
+}
