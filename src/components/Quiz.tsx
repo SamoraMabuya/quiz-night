@@ -4,11 +4,17 @@ import Button from "./ui/Button";
 import Card from "./ui/Card";
 import QuizNavigation from "./QuizNavigation";
 import Score from "./Score";
+import Loading from "./ui/Loading";
 
 export default function Quiz() {
   const { state, checkAnswer, nextQuestion, resetQuiz, previousQuestion } =
     useQuiz();
-  const { questions, currentQuestionIndex, score, showAnswer } = state;
+  const { questions, currentQuestionIndex, score, showAnswer, isLoading } =
+    state;
+
+  if (isLoading || !questions.length) {
+    return <Loading />;
+  }
 
   if (currentQuestionIndex >= questions.length) {
     return (
