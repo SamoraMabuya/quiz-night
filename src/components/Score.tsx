@@ -1,5 +1,3 @@
-import { FC } from "react";
-
 interface ScoreProps {
   score: number;
   total: number;
