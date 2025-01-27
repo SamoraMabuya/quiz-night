@@ -61,7 +61,6 @@ export default function Drawer() {
         } lg:translate-x-0 w-64`}
       >
         <div className="p-4">
-          <h1 className="text-xl font-bold text-gray-800 mb-6">Menu</h1>
           <nav className="space-y-2">
             <NavItem
               to="/quiz"
