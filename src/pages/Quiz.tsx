@@ -1,10 +1,10 @@
 import useQuiz from "../hooks/useQuiz";
-import Question from "./Question";
-import Button from "./ui/Button";
-import Card from "./ui/Card";
-import QuizNavigation from "./QuizNavigation";
-import Score from "./Score";
-import Loading from "./ui/Loading";
+import Question from "../components/Question";
+import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
+import QuizNavigation from "../components/QuizNavigation";
+import Score from "../components/Score";
+import Loading from "../components/ui/Loading";
 
 export default function Quiz() {
   const { state, checkAnswer, nextQuestion, resetQuiz, previousQuestion } =

@@ -5,8 +5,8 @@ import { ErrorBoundary } from "./components/ui/ErrorBoundary";
 import ErrorFallback from "./components/ui/ErrorFallback";
 import Drawer from "./components/ui/Drawer";
 
-const Quiz = lazy(() => import("./components/Quiz"));
-const Movies = lazy(() => import("./components/Movies"));
+const Quiz = lazy(() => import("./pages/Quiz"));
+const Movies = lazy(() => import("./pages/Movies"));
 
 function App() {
   return (
