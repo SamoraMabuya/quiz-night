@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchMovies } from "../services/api/movies";
-
-interface Movie {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
-  release_date: string;
-  vote_average: number;
-}
+import { Movie } from "../types/movies";
 
 export function useMovies(query?: string) {
   const [movies, setMovies] = useState<Movie[]>([]);
