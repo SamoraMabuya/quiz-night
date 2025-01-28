@@ -1,7 +1,7 @@
 import { Menu, Film, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { MouseEventHandler, useState } from "react";
-import Button from "./Button";
+import { IconButton } from "./IconButton";
 
 interface NavItemProps {
   to: string;
@@ -43,16 +43,13 @@ export default function Drawer() {
       )}
 
       {/* Mobile Toggle Button */}
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
+      <IconButton
+        icon={isOpen ? <X /> : <Menu />}
+        label={isOpen ? "Close menu" : "Open menu"}
         className="fixed top-4 left-4 z-30 p-2 rounded-lg bg-white shadow-lg lg:hidden"
-      >
-        {isOpen ? (
-          <X className="w-6 h-6 text-gray-600" />
-        ) : (
-          <Menu className="w-6 h-6 text-gray-600" />
-        )}
-      </Button>
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      />
 
       {/* Drawer */}
       <div
