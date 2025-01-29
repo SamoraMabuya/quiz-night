@@ -4,20 +4,21 @@ interface ScoreProps {
 }
 
 export default function Score({ score, total }: ScoreProps) {
-  const percentage = Math.round((score / total) * 100);
+  // Guard against division by zero
+  const percentage = total === 0 ? 0 : Math.round((score / total) * 100);
 
   function getScoreColor() {
-    if (percentage >= 80) return "text-green-600";
-    if (percentage >= 60) return "text-yellow-600";
-    return "text-red-600";
+    if (percentage >= 80) return "text-emerald-400";
+    if (percentage >= 60) return "text-amber-400";
+    return "text-gray-400";
   }
 
   return (
     <div className="flex flex-col items-center">
-      <div className={`text-2xl font-bold ${getScoreColor()}`}>
+      <div className={`text-4xl font-bold ${getScoreColor()}`}>
         {score} / {total}
       </div>
-      <div className="text-gray-600 text-sm">{percentage}% Correct</div>
+      <div className="text-gray-400 mt-2">{percentage}% Correct</div>
     </div>
   );
 }

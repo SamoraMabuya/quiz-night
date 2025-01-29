@@ -17,7 +17,7 @@ function App() {
           <ErrorFallback resetErrorBoundary={() => window.location.reload()} />
         }
       >
-        <div className="flex min-h-screen bg-gray-100">
+        <div className="flex min-h-screen ">
           <Drawer />
           <main className="flex-1 ml-0 lg:ml-64 pt-16 lg:pt-6">
             <Suspense fallback={<Loading />}>

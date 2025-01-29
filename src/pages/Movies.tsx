@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMovies } from "../hooks/useMovies";
 import Loading from "../components/ui/Loading";
 import SearchBar from "../components/ui/SearchBar";
+import { useDebounce } from "../hooks/useDebounce";
+import { MovieCard } from "../components/MovieCard";
 
 export default function Movies() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { movies, isLoading, error } = useMovies(searchQuery);
-
+  const debouncedSearch = useDebounce(searchQuery, 500);
+  const { movies, isLoading, error } = useMovies(debouncedSearch);
   if (isLoading) {
     return <Loading />;
   }
@@ -21,38 +22,32 @@ export default function Movies() {
   }
 
   return (
-    <div className="w-full max-w-6xl px-4 lg:px-6">
-      <div className="card mb-6">
-        <SearchBar
-          initialValue={searchQuery}
-          onSearch={handleSearch}
-          placeholder="Search movies..."
-        />
+    <div className="min-h-screen w-full">
+      {/* Hero Section */}
+      <div className="relative h-[50vh] mb-8">
+        <div className="absolute inset-0 bg-gradient-spotlight from-dark-100 via-dark-200 to-dark-300" />
+        <div className="absolute inset-0 flex items-center px-6 lg:px-12">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+              Discover Movies
+            </h1>
+            <SearchBar
+              initialValue={searchQuery}
+              onSearch={handleSearch}
+              placeholder="Search movies..."
+              className="w-full max-w-lg"
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {movies.map((movie) => (
-          <Link
-            key={movie.id}
-            to={`/movies/${movie.id}`}
-            className="block transition-transform hover:scale-105"
-          >
-            <div className="card h-full">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="w-full h-64 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold mb-2">{movie.title}</h3>
-              <p className="text-gray-600 text-sm">
-                {movie.overview.slice(0, 100)}...
-              </p>
-              <div className="mt-4 text-sm text-gray-500">
-                {new Date(movie.release_date).getFullYear()}
-              </div>
-            </div>
-          </Link>
-        ))}
+      {/* Movies Grid */}
+      <div className="px-6 lg:px-12 pb-12">
+        <div className="movie-grid">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     </div>
   );

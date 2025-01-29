@@ -1,4 +1,4 @@
-import { Menu, Film, X } from "lucide-react";
+import { MessageCircleQuestion, Film, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { MouseEventHandler, useEffect, useState } from "react";
 import { IconButton } from "./IconButton";
@@ -18,9 +18,7 @@ function NavItem({ to, icon, label, isActive, onClick }: NavItemProps) {
       to={to}
       onClick={onClick}
       className={`flex items-center gap-3 p-3 rounded-lg transition-colors duration-200 ${
-        isActive
-          ? "bg-primary-50 text-primary-600"
-          : "text-secondary-500 hover:bg-gray-50"
+        isActive ? "bg-dark-100 " : "hover:bg-dark-200 hover:text-gray-200"
       }`}
     >
       {icon}
@@ -43,7 +41,7 @@ export default function Drawer() {
 
   return (
     <>
-      {/* Overlay for mobile ui when drawer is open  */}
+      {/* Overlay for mobile ui when drawer is open */}
       {!isDesktop && isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
@@ -54,9 +52,10 @@ export default function Drawer() {
       {/* Mobile Toggle Button */}
       {!isDesktop && (
         <IconButton
-          icon={isOpen ? <X /> : <Menu />}
+          icon={isOpen ? <X /> : <MessageCircleQuestion />}
           label={isOpen ? "Close menu" : "Open menu"}
-          className="fixed top-4 left-4 z-30 p-2 rounded-lg bg-white shadow-lg lg:hidden"
+          className="fixed top-4 left-4 z-30 p-2 rounded-lg bg-dark-200 shadow-lg lg:hidden
+            border border-gray-700/50 text-gray-300 hover:bg-dark-100"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
         />
@@ -64,15 +63,16 @@ export default function Drawer() {
 
       {/* Side Drawer */}
       <div
-        className={`fixed top-0 left-0 h-full bg-white shadow-xl transition-transform duration-300 transform z-30 
-          ${!expandDrawer ? "-translate-x-full" : "translate-x-0"} 
-          w-64`}
+        className={`fixed top-0 left-0 h-full bg-dark-200 transition-transform duration-300 transform z-30 
+  ${
+    !expandDrawer ? "-translate-x-full" : "translate-x-0"
+  } w-64 border-r border-gray-700/30 shadow-[2px_0_8px_0_rgba(0,0,0,0.4)]`}
       >
         <div className="p-4">
           <nav className="space-y-2">
             <NavItem
               to="/quiz"
-              icon={<Menu className="w-5 h-5" />}
+              icon={<MessageCircleQuestion className="w-5 h-5" />}
               label="Quiz Night"
               isActive={location.pathname === "/quiz"}
               onClick={() => !isDesktop && setIsOpen(false)}

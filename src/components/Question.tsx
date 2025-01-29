@@ -49,25 +49,18 @@ export default function Question({
   }, [question]);
 
   const getAnswerClass = (answer: string) => {
-    const baseClass =
-      "w-full p-4 text-left border-2 rounded-lg transition-colors duration-200";
-
     switch (true) {
-      // Not showing results & answer is selected
       case !showAnswer && selectedAnswer === answer:
-        return `${baseClass} border-primary-500 bg-primary-50`;
+        return "answer-base answer-selected";
 
-      // Not showing results & answer not selected
       case !showAnswer:
-        return `${baseClass} border-gray-200 hover:border-primary-500 hover:bg-primary-50`;
+        return "answer-base answer-default";
 
-      // Showing results & is correct answer
       case answer === question.correct_answer:
-        return `${baseClass} border-green-500 bg-green-50`;
+        return "answer-base answer-correct";
 
-      // All other answers when showing results
       default:
-        return `${baseClass} border-gray-200 opacity-50`;
+        return "answer-base answer-inactive";
     }
   };
   return (

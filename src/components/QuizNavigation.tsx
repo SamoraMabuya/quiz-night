@@ -18,7 +18,7 @@ export default function QuizNavigation({
   return (
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
       <div className="flex items-center gap-4">
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-gray-300">
           Question {currentIndex + 1} of {totalQuestions}
         </div>
         <Timer onTimeout={onNext} />
@@ -27,7 +27,8 @@ export default function QuizNavigation({
         <Button
           onClick={onPrevious}
           disabled={currentIndex === 0}
-          className="btn-primary flex items-center disabled:opacity-50"
+          className="btn-primary flex items-center disabled:opacity-30 
+            disabled:cursor-not-allowed"
         >
           <ChevronLeft className="w-4 h-4 mr-2" />
           Previous
