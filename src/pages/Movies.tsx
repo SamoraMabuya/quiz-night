@@ -23,7 +23,6 @@ export default function Movies() {
 
   return (
     <div className="min-h-screen w-full">
-      {/* Hero Section */}
       <div className="relative h-[50vh] mb-8">
         <div className="absolute inset-0 bg-gradient-spotlight from-dark-100 via-dark-200 to-dark-300" />
         <div className="absolute inset-0 flex items-center px-6 lg:px-12">
@@ -40,7 +39,6 @@ export default function Movies() {
           </div>
         </div>
       </div>
-
       {/* Movies Grid */}
       <div className="px-6 lg:px-12 pb-12">
         <div className="movie-grid">

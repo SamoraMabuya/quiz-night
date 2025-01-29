@@ -1,4 +1,3 @@
-// components/ui/Card.tsx
 interface CardProps {
   children: React.ReactNode;
   className?: string;
