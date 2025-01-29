@@ -14,7 +14,7 @@ export function IconButton({
 }: IconButtonProps) {
   return (
     <Button className={className} label={label} {...props}>
-      <span className={"w-6 h-6 text-gray-600"} aria-hidden="true">
+      <span className={"w-6 h-6 text-white-50 border-white"} aria-hidden="true">
         {icon}
       </span>
     </Button>

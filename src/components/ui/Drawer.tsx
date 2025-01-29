@@ -1,4 +1,4 @@
-import { MessageCircleQuestion, Film, X } from "lucide-react";
+import { MessageCircleQuestion, Film, X, Menu } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { MouseEventHandler, useEffect, useState } from "react";
 import { IconButton } from "./IconButton";
@@ -52,10 +52,10 @@ export default function Drawer() {
       {/* Mobile Toggle Button */}
       {!isDesktop && (
         <IconButton
-          icon={isOpen ? <X /> : <MessageCircleQuestion />}
+          icon={isOpen ? <X /> : <Menu />}
           label={isOpen ? "Close menu" : "Open menu"}
-          className="fixed top-4 left-4 z-30 p-2 rounded-lg bg-dark-200 shadow-lg lg:hidden
-            border border-gray-700/50 text-gray-300 hover:bg-dark-100"
+          className="fixed top-4 left-4 z-30 p-2 rounded-lg bg-dark-200 shadow-lglg:hidden
+             text-gray-50 hover:bg-dark-100"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
         />
