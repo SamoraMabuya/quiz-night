@@ -59,7 +59,7 @@ export default function MovieDetail() {
             />
             <div>
               <h1 className="text-2xl font-bold mb-4">{movie.title}</h1>
-              <p className="text-gray-600 mb-4">{movie.overview}</p>
+              <p className="text-white mb-4">{movie.overview}</p>
               <div className="space-y-2">
                 <div>
                   <span className="font-semibold">Release Date:</span>{" "}
