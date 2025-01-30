@@ -42,6 +42,7 @@ export default function SearchBar({
         type="submit"
         className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 
           hover:bg-dark-300 rounded-lg transition-colors duration-200"
+          label="submit search button"
       >
         <Search className="w-5 h-5 text-gray-400" />
       </Button>

@@ -78,6 +78,7 @@ export default function Question({
             disabled={showAnswer}
             className={`w-full p-4 text-left ${getAnswerClass(answer)}`}
             dangerouslySetInnerHTML={{ __html: answer }}
+            label="select answer option"
           />
         ))}
       </div>

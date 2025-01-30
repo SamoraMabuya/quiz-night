@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
   children?: ReactNode;
-  label?: string; // Explicit aria-label
+  label?: string; // Use as aria-label
 }
 
 export default function Button({

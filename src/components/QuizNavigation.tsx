@@ -29,6 +29,7 @@ export default function QuizNavigation({
           disabled={currentIndex === 0}
           className="btn-primary flex items-center disabled:opacity-30 
             disabled:cursor-not-allowed"
+          label="Previous Button"
         >
           <ChevronLeft className="w-4 h-4 mr-2" />
           Previous
