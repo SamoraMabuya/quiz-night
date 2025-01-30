@@ -22,7 +22,3 @@ export interface MovieResponse {
   total_results: number;
 }
 
-export interface MovieError {
-  status_message: string;
-  status_code: number;
-}
